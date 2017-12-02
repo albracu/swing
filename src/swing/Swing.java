@@ -5,38 +5,48 @@ import java.awt.event.*;
 
 public class Swing extends JFrame implements ActionListener{
 
-    private JLabel etiqueta1, etiqueta2, etiqueta3;
-    JButton botonsalida;
+    private JTextField camporellenable;
+    private JTextArea campo2;
+    private JLabel etiqueta;
+    private JButton boton;
 
     public Swing(){
         setLayout(null);
-        etiqueta1 = new JLabel("Mi Programa");
-        etiqueta1.setBounds(164,90, 200, 30);
-        add(etiqueta1);
 
-        setLayout(null);
-        etiqueta2 = new JLabel("version 1.0");
-        etiqueta2.setBounds(168,105, 200, 30);
-        add(etiqueta2);
+        // Texto
+        etiqueta = new JLabel("Poner Titulo:");
+        etiqueta.setBounds(10,10,150,20);
+        add(etiqueta);
 
-        setLayout(null);
-        etiqueta3 = new JLabel("Alfredo Bravo Cuero");
-        etiqueta3.setBounds(140,120, 200, 30);
-        add(etiqueta3);
 
-        botonsalida = new JButton("Salir");
-        botonsalida.setBounds(150,220,100, 30);
-        add(botonsalida);
-        botonsalida.addActionListener(this);
+        // Entrada de Usuario
+        camporellenable = new JTextField();
+        camporellenable.setBounds(150,10,150,20);
+        add(camporellenable);
+
+        // Text Area
+        campo2 = new JTextArea();
+        campo2.setBounds(10,40,300,50);
+        add(campo2);
+
+        // Boton
+        boton = new JButton("Cambiar");
+        boton.setBounds(10,120,100,30);
+        add(boton);
+        boton.addActionListener(this);
+
+
 
 
     }
 
-    // Metodo que utiliza el boton para salir
+    // Metodo que utiliza el boton
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==botonsalida){
-            System.exit(0);
+        if (e.getSource()==boton){
+            String titulo = camporellenable.getText();
+            setTitle(titulo);
         }
+
     }
 
 
