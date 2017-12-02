@@ -9,6 +9,7 @@ public class Swing extends JFrame implements ActionListener{
     private JTextArea campo2;
     private JLabel etiqueta;
     private JButton boton;
+    private JScrollPane scrol1;
 
     public Swing(){
         setLayout(null);
@@ -26,8 +27,9 @@ public class Swing extends JFrame implements ActionListener{
 
         // Text Area
         campo2 = new JTextArea();
-        campo2.setBounds(10,40,300,50);
-        add(campo2);
+        scrol1 = new JScrollPane(campo2);
+        scrol1.setBounds(10,40,300,50);
+        add(scrol1);
 
         // Boton
         boton = new JButton("Cambiar");
