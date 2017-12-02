@@ -22,6 +22,10 @@ public class Swing extends JFrame implements ActionListener, ItemListener, Chang
     // Checkbox
     private JCheckBox check1, check2, check3;
 
+    // Radio Button
+    private JRadioButton radio1, radio2, radio3;
+    private ButtonGroup grupobotones;
+
     public Swing(){
         setLayout(null);
 
@@ -92,6 +96,27 @@ public class Swing extends JFrame implements ActionListener, ItemListener, Chang
         check3.addChangeListener(this);
         add(check3);
 
+        // Radio Button
+        grupobotones = new ButtonGroup();
+        radio1 = new JRadioButton("640x480");
+        radio1.setBounds(150,150,100,30);
+        radio1.addChangeListener(this);
+        add(radio1);
+        grupobotones.add(radio1);
+
+        radio2 = new JRadioButton("800x600");
+        radio2.setBounds(150,170,100,30);
+        radio2.addChangeListener(this);
+        add(radio2);
+        grupobotones.add(radio2);
+
+        radio3 = new JRadioButton("1024x768");
+        radio3.setBounds(150,190,100,30);
+        radio3.addChangeListener(this);
+        add(radio3);
+        grupobotones.add(radio3);
+
+
 
     }
 
@@ -126,7 +151,7 @@ public class Swing extends JFrame implements ActionListener, ItemListener, Chang
         }
     }
 
-    // Metodo que utiliza el CheckBox
+    // Metodo que utiliza el CheckBox y Radio Button
     public void stateChanged(ChangeEvent e) {
         String titulo = "";
         if (check1.isSelected()== true) {
@@ -141,8 +166,21 @@ public class Swing extends JFrame implements ActionListener, ItemListener, Chang
             titulo = titulo + "Medellin";
         }
 
+        if (radio1.isSelected()) {
+            setSize(640, 480);
+        }
+
+        if (radio2.isSelected()) {
+            setSize(800, 600);
+        }
+
+        if (radio3.isSelected()) {
+            setSize(1024, 768);
+        }
+
         setTitle(titulo);
     }
+
 
     public static void main(String[] args) {
         Swing ventana1 = new Swing();
